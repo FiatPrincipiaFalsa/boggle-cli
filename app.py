@@ -5,6 +5,7 @@ from collections import defaultdict
 from threading import Timer
 from six.moves import input
 
+import os
 
 class Boggle():
     """ Game based on a 4x4 Grid where you can form words using adjacent tiles.
@@ -122,6 +123,7 @@ class GameView():
         self.correct = set()
 
     def display_board(self):
+        os.system('clear')
         """Print out the board space delimited with newline at bottom"""
         for row in self.matrix:
             print(' '.join(row))
