@@ -100,7 +100,17 @@ class Boggle():
 
     def score_word(self, word):
         """Scores a word"""
-        return len(word)
+        length = len(word)
+        if length < 5:
+            return 1
+        elif length < 6:
+            return 2
+        elif length < 7:
+            return 3
+        elif length < 8:
+            return 5
+        else:
+            return 11
 
     def score_word_set(self, words):
         """Scores a set of words"""
