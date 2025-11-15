@@ -6,6 +6,7 @@ from threading import Timer
 from six.moves import input
 
 import os
+import random
 
 class Boggle():
     """ Game based on a 4x4 Grid where you can form words using adjacent tiles.
@@ -175,7 +176,31 @@ class GameView():
 
 def main():
     """Game Starts Here"""
-    state = 'oslc elai tant myse'
+    """
+    q=QU
+    challenge = iklmqu
+    """
+    state = ""
+    count = 0
+    die = [
+            ["a","a","c","i","o","t"],["a","b","i","l","t","y"],["a","b","j","m","o","q"],["a","c","d","e","m","p"],
+            ["a","c","e","l","r","s"],["a","d","e","n","v","z"],["a","h","m","o","r","s"],["b","f","i","o","r","x"],
+            ["d","e","n","o","s","w"],["d","k","n","o","t","u"],["e","e","f","h","i","y"],["e","g","i","n","t","v"],
+            ["e","g","k","l","u","y"],["e","h","i","n","p","s"],["e","l","p","s","t","u"],["g","i","l","r","u","w"]
+            ]
+    dice = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    while len(dice) > 0:
+        choice = random.randrange(len(dice))
+        state = state + die[dice[choice]][random.randrange(6)]
+        if count % 4 == 3:
+            state = state + " "
+        dice.pop(choice)
+        print(state)
+        print(count)
+        count = count + 1
+    x=input()
+
+    """state = 'oslc elai tant myse'"""
     wordlist = 'bsd_wordlist.txt'
 
     board = Boggle(state, wordlist)
